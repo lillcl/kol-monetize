@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monetize — A field guide for creators who want a business, not a brand deal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0F11;--paper:#F4F1EA;--paper-deep:#EAE5D6;--rule:#D8D2C4;
+  --muted:#6B6557;--red:#D2453A;--green:#3A5A40;
+  --max:680px;--display:'Fraunces',ui-serif,Georgia,serif;
+  --body:'Newsreader',ui-serif,Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font:19px/1.55 var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)}
+::selection{background:var(--ink);color:var(--paper)}
+
+.mast{padding:14px 32px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mast b{color:var(--ink);letter-spacing:.18em}
+
+.hero{padding:96px 32px 56px;border-bottom:1px solid var(--rule)}
+.hero .label{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px}
+.hero h1{font-family:var(--display);font-size:clamp(40px,6.4vw,80px);line-height:.98;letter-spacing:-.04em;font-weight:500;margin:0 0 24px;max-width:14ch;font-variation-settings:"opsz" 144}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--red)}
+.hero .lede{font-size:21px;line-height:1.45;max-width:36ch;color:var(--ink);font-weight:400;margin:0 0 32px}
+.cta-inline{display:inline-flex;gap:18px;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cta-inline button{background:var(--ink);color:var(--paper);border:0;padding:16px 22px;cursor:pointer;font-family:inherit;font-size:inherit;letter-spacing:inherit;text-transform:inherit;transition:background .2s}
+.cta-inline button:hover{background:var(--red)}
+
+.case-section{padding:96px 0 80px;border-bottom:1px solid var(--rule);background:var(--paper-deep)}
+.case-section .pad{padding:0 32px}
+.case-section .head{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.case-grid{display:grid;grid-template-columns:340px 1fr;gap:64px;max-width:1080px;margin:0 auto;padding:0 32px;align-items:start}
+.case-pic{aspect-ratio:3/4;overflow:hidden;position:relative;background:#222}
+.case-pic img{width:100%;height:100%;object-fit:cover;filter:grayscale(.12) contrast(1.05)}
+.case-pic .tag{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
+.case-body h2{font-family:var(--display);font-size:42px;line-height:1.05;letter-spacing:-.03em;font-weight:500;margin:0 0 6px;font-variation-settings:"opsz" 96}
+.case-body .role{font-style:italic;color:var(--muted);font-size:18px;margin-bottom:24px}
+.case-body h5{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin:28px 0 8px;font-weight:500}
+.case-body h5:first-of-type{margin-top:0}
+.case-body p{margin:0 0 14px;font-size:18px}
+.case-body .quote{border-left:2px solid var(--red);padding-left:18px;font-style:italic;color:var(--muted);margin:20px 0;font-size:18px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--ink);margin:24px 0}
+.flow .stage{padding:14px 12px;border-right:1px solid var(--ink);font-family:var(--mono);font-size:11px;color:var(--muted)}
+.flow .stage:last-child{border-right:0;background:var(--ink);color:var(--paper)}
+.flow .stage b{display:block;font-family:var(--display);font-size:17px;color:var(--ink);margin-bottom:4px;font-weight:500;letter-spacing:-.01em}
+.flow .stage:last-child b{color:var(--paper)}
+.price-strip{display:flex;gap:24px;padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:24px 0;font-family:var(--mono);font-size:12px;color:var(--muted);flex-wrap:wrap}
+.price-strip div b{display:block;color:var(--red);font-size:18px;font-weight:500}
+
+.tax{padding:96px 0 80px;border-bottom:1px solid var(--rule)}
+.tax .pad{padding:0 32px;max-width:1080px;margin:0 auto}
+.tax .head{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.tax h2{font-family:var(--display);font-size:42px;line-height:1.05;letter-spacing:-.03em;font-weight:500;margin:0 0 32px;max-width:18ch;font-variation-settings:"opsz" 96}
+.tax h2 em{font-style:italic;color:var(--red);font-weight:400}
+.tax-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.tax-cell{padding:24px 22px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.tax-cell .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--red);margin-bottom:8px}
+.tax-cell h6{font-family:var(--display);font-size:22px;margin:0 0 6px;font-weight:500;letter-spacing:-.02em}
+.tax-cell .one{font-size:15px;line-height:1.45;color:var(--muted);margin-bottom:8px}
+.tax-cell .ex{font-family:var(--mono);font-size:11px;color:var(--ink);padding-top:8px;border-top:1px solid var(--rule)}
+
+.final{padding:96px 32px;background:var(--ink);color:var(--paper);text-align:center}
+.final h2{font-family:var(--display);font-size:clamp(36px,5vw,64px);line-height:1.05;letter-spacing:-.03em;margin:0 auto 16px;max-width:16ch;font-weight:500;font-variation-settings:"opsz" 144}
+.final h2 em{font-style:italic;color:var(--red);font-weight:400}
+.final p{max-width:38ch;margin:0 auto 28px;font-size:19px;color:rgba(244,241,234,.7)}
+.final button{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;background:var(--red);color:var(--paper);border:0;padding:20px 32px;cursor:pointer;transition:background .2s}
+.final button:hover{background:var(--paper);color:var(--ink)}
+.final .meta{margin-top:48px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,241,234,.4)}
+
+footer{padding:24px 32px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.diag-overlay{position:fixed;inset:0;background:rgba(14,15,17,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:24px;z-index:100}
+.diag-overlay.open{display:flex}
+.diag-shell{background:var(--paper);max-width:640px;width:100%;max-height:92vh;overflow-y:auto;position:relative}
+.diag-head{padding:24px 32px 16px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--paper);z-index:2}
+.diag-head .label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.diag-head .prog{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+.diag-head .close{background:transparent;border:0;font-size:22px;cursor:pointer;color:var(--ink);line-height:1;padding:4px 8px}
+.diag-body{padding:32px;display:flex;flex-direction:column;min-height:380px}
+.diag-q{font-family:var(--display);font-size:30px;line-height:1.18;letter-spacing:-.02em;font-weight:500;margin:0 0 8px;font-variation-settings:"opsz" 60}
+.diag-sub{color:var(--muted);font-style:italic;margin-bottom:24px;font-size:16px;line-height:1.45}
+.diag-evidence{margin-bottom:16px;padding:10px 14px;border-left:3px solid var(--red);background:var(--paper-deep);font-family:var(--mono);font-size:11px;color:var(--ink)}
+.diag-evidence b{color:var(--red);font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-right:8px}
+.diag-opts{display:grid;gap:8px;margin-bottom:24px}
+.diag-opts.c2{grid-template-columns:1fr 1fr}
+.diag-opt{border:1px solid var(--ink);background:transparent;padding:13px 16px;text-align:left;cursor:pointer;font-family:var(--body);font-size:16px;transition:background .12s,color .12s;line-height:1.3;color:var(--ink)}
+.diag-opt:hover{background:var(--ink);color:var(--paper)}
+.diag-opt.sel{background:var(--ink);color:var(--paper)}
+.diag-opt .check{display:inline-block;width:16px;margin-right:8px;color:var(--red);font-family:var(--mono)}
+.diag-opt.sel .check{color:var(--paper)}
+.diag-foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.diag-foot .l,.diag-foot .r{display:flex;gap:8px;align-items:center}
+.diag-foot button{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--ink);border:1px solid var(--ink);padding:10px 16px;cursor:pointer;transition:background .12s,color .12s}
+.diag-foot button.primary{background:var(--ink);color:var(--paper)}
+.diag-foot button.primary:hover{background:var(--red);border-color:var(--red)}
+.diag-foot button.skip{border:0;color:var(--muted);padding:10px 12px}
+
+.result{padding:32px;background:var(--paper)}
+.result h3{font-family:var(--display);font-size:32px;margin:0 0 4px;letter-spacing:-.02em;font-weight:500}
+.result .sub{color:var(--muted);font-style:italic;margin-bottom:18px;font-size:15px}
+.evidence-block{background:var(--ink);color:var(--paper);padding:20px 22px;margin-bottom:18px}
+.evidence-block .lab{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.evidence-block h4{font-family:var(--display);font-size:26px;margin:0 0 6px;font-weight:500;letter-spacing:-.01em}
+.evidence-block .conf{font-family:var(--mono);font-size:11px;color:rgba(244,241,234,.6);margin-bottom:10px}
+.evidence-block .why{font-size:15px;line-height:1.5;color:rgba(244,241,234,.85);margin:0}
+.product-list{margin:18px 0;counter-reset:pp}
+.product{padding:18px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:36px 1fr;gap:14px}
+.product:first-of-type{background:var(--paper-deep);padding:18px;margin:0 -18px 0;border:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.product .n{font-family:var(--mono);font-size:14px;color:var(--red);font-weight:500;letter-spacing:.04em}
+.product .name{font-family:var(--display);font-size:22px;font-weight:500;margin-bottom:4px;letter-spacing:-.01em}
+.product .meta{font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:10px;letter-spacing:.04em}
+.product .meta b{color:var(--red);font-weight:500}
+.product .day{font-size:15px;line-height:1.5;margin:0 0 8px}
+.product .day b{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+.product .copy{font-style:italic;color:var(--muted);font-size:15px;margin:0;padding:10px 14px;border-left:2px solid var(--rule)}
+.product .gate{font-family:var(--mono);font-size:11px;color:var(--ink);margin-top:8px}
+.product .gate b{color:var(--green);font-weight:500;letter-spacing:.06em;text-transform:uppercase;margin-right:6px}
+.dont-list{margin:18px 0;padding:18px;background:rgba(210,69,58,.05);border-left:3px solid var(--red)}
+.dont-list h6{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin:0 0 10px}
+.dont-list ul{margin:0;padding:0;list-style:none}
+.dont-list li{padding:6px 0;font-size:15px;color:var(--ink);border-bottom:1px solid var(--rule)}
+.dont-list li:last-child{border-bottom:0}
+.benchmarks{margin:18px 0;padding-top:18px;border-top:1px solid var(--rule)}
+.benchmarks h6{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.bm-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.bm-row img{width:48px;height:48px;object-fit:cover;flex:none;background:#222}
+.bm-row .name{font-family:var(--display);font-size:17px;font-weight:500;margin-bottom:2px}
+.bm-row .mech{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.bm-row .pct{margin-left:auto;font-family:var(--display);font-size:24px;font-weight:500;color:var(--red)}
+
+@media(max-width:900px){
+  .case-grid{grid-template-columns:1fr;gap:24px;padding:0 24px}
+  .case-body h2{font-size:32px}
+  .flow{grid-template-columns:1fr 1fr}
+  .flow .stage:nth-child(2n){border-right:0}
+  .flow .stage:nth-child(-n+3){border-bottom:1px solid var(--ink)}
+  .tax-grid{grid-template-columns:1fr 1fr}
+  .case-section,.tax{padding:64px 0 56px}
+}
+@media(max-width:600px){
+  .hero{padding:56px 24px 40px}
+  .hero h1{font-size:38px}
+  .tax-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .flow .stage{border-right:0!important;border-bottom:1px solid var(--ink)}
+  .flow .stage:last-child{border-bottom:0}
+  .diag-shell{max-height:100vh;height:100vh}
+  .diag-q{font-size:24px}
+  .diag-body{padding:24px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <b>Monetize.</b>
+  <span>Vol. 01 · The Field Guide</span>
+</div>
+
+<section class="hero">
+  <div class="label">For creators who'd rather build than campaign</div>
+  <h1>How creators actually <em>make money.</em></h1>
+  <p class="lede">A field guide to the six monetization mechanisms — and a 13-question diagnostic that tells you which one your content already contains.</p>
+  <div class="cta-inline">
+    <button onclick="openDiag()">Take the diagnostic →</button>
+    <span>13 questions · 5 minutes</span>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="head" style="padding:0 32px 24px;max-width:1080px;margin:0 auto">Field note · 01</div>
+  <div class="case-grid">
+    <div class="case-pic">
+      <img src="https://cdn2.sagefinder.com/assets/users/large/2130031.jpg?r=862028" alt="Emma Chamberlain">
+      <span class="tag">US · Mega scale</span>
+    </div>
+    <div class="case-body">
+      <h2>Emma Chamberlain</h2>
+      <div class="role">Lifestyle ritual → replenishable consumable</div>
+
+      <h5>What's actually being sold</h5>
+      <p>Coffee and matcha. Specifically, the consumable version of a daily ritual she already performs on camera. <strong>The product is the habit, packaged.</strong></p>
+
+      <h5>The pathway</h5>
+      <div class="flow">
+        <div class="stage"><b>Free content</b>Coffee ritual in daily vlogs</div>
+        <div class="stage"><b>Entry</b>Cold Brew Starter · $44</div>
+        <div class="stage"><b>Repeat</b>Coffee / matcha refill</div>
+        <div class="stage"><b>Bundle</b>Starter pack + accessories</div>
+        <div class="stage"><b>Higher AOV</b>Larger bundles · $80–99</div>
+      </div>
+
+      <h5>Why it works</h5>
+      <p>The audience follows <em>her</em>. The product is a way to extend the companion relationship — by participating in the same morning ritual at home.</p>
+      <div class="quote">She's not selling coffee. She's selling the version of Tuesday morning where she makes the coffee.</div>
+
+      <div class="price-strip">
+        <div>Matcha<b>$30</b></div>
+        <div>Coffee<b>$20</b></div>
+        <div>Starter Pack<b>$44–72</b></div>
+        <div>Bundle<b>$80–99</b></div>
+        <div>Repeat cycle<b>Every 3–4 weeks</b></div>
+      </div>
+
+      <h5>What to copy</h5>
+      <p>The <strong>habit → consumable → repeat</strong> pattern. If your content shows a daily ritual, that ritual is the product.</p>
+
+      <h5>What NOT to copy</h5>
+      <p>Opening a coffee company. Emma's supply chain took years and capital. Most creators should sell the ritual digitally or via preorder first.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tax">
+  <div class="pad">
+    <div class="head">Framework · The six mechanisms</div>
+    <h2>Underneath every creator business is one of <em>six</em> patterns.</h2>
+    <div class="tax-grid">
+      <div class="tax-cell"><div class="n">M-01</div><h6>Personality commerce</h6><div class="one">Fans follow you. Product extends the relationship — photo set, membership, fan meet.</div><div class="ex">Moriah Elizabeth · Ryan Trahan</div></div>
+      <div class="tax-cell"><div class="n">M-02</div><h6>Lifestyle commerce</h6><div class="one">Fans want to live like you. Product is the consumable inside the life.</div><div class="ex">Emma · Pamela Reif · 滴妹</div></div>
+      <div class="tax-cell"><div class="n">M-03</div><h6>Expertise commerce</h6><div class="one">Fans follow to learn. Product is structured competence — guide, course, consultation.</div><div class="ex">Ali Abdaal · Coffee Lam</div></div>
+      <div class="tax-cell"><div class="n">M-04</div><h6>Aesthetic commerce</h6><div class="one">Fans want your taste. Product is a curated edit of what you'd buy, wear, use.</div><div class="ex">Matilda Djerf · Molly-Mae</div></div>
+      <div class="tax-cell"><div class="n">M-05</div><h6>Trust commerce</h6><div class="one">Fans follow your judgment. Product is the recommendation, the curation, the verified answer.</div><div class="ex">黎貝卡 · NikkieTutorials</div></div>
+      <div class="tax-cell"><div class="n">M-06</div><h6>Community commerce</h6><div class="one">Fans follow each other. Product is access — membership, live, events.</div><div class="ex">李子柒 · 滇西小哥</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <h2>Find out which one your content <em>already is.</em></h2>
+  <p>13 questions, evidence-weighted, branching. Result names your first product, your day-one action, your copy starter, and three creators with overlapping mechanisms.</p>
+  <button onclick="openDiag()">Take the diagnostic →</button>
+  <div class="meta">© Monetize · Vol. 01 · Made in Hong Kong</div>
+</section>
+
+<footer>
+  <div>Monetize. Vol. 01</div>
+  <div>Sept 2026</div>
+</footer>
+
+<div class="diag-overlay" id="diag">
+  <div class="diag-shell">
+    <div class="diag-head">
+      <div>
+        <div class="label" id="diagLabel">PHASE 01 · POSITIONING</div>
+        <div class="prog" id="diagProg">Question 1 of 13</div>
+      </div>
+      <button class="close" onclick="closeDiag()">×</button>
+    </div>
+    <div class="diag-body" id="diagBody"></div>
+  </div>
+</div>
+
+<script>
+const EVIDENCE = { A: 1.0, B: 0.7, C: 0.5, D: 0.2 };
+const EVIDENCE_LABEL = { A: 'Actual payment', B: 'Fan request', C: 'Content signal', D: 'Stated preference' };
+
+const PRODUCTS = {
+  Personality: [
+    { name: 'Digital Photo Set', price: 'HK$48–98', platform: 'Gumroad or Ko-fi',
+      day: 'Open your photo folder. Pull 8–12 photos that already performed well. Edit into one PDF or photo dump. Upload to Gumroad at HK$68. Caption: "The photo set I\'ve been sitting on."',
+      copy: 'I finally did it. The photo set people keep DMing me about.',
+      gate: '30 units sold OR 5% story-view conversion' },
+    { name: 'Monthly BTS Drop', price: 'HK$28–58 / month', platform: 'Patreon or Instagram Subscriptions',
+      day: 'Record one 10-minute behind-the-scenes video per month. Post to Patreon. Charge $28. Tell your IG audience once per month that the latest drop is live.',
+      copy: 'The version of me that doesn\'t make it to the feed.',
+      gate: '50 active subscribers for 3 months' },
+    { name: 'Signed Polaroid / Print', price: 'HK$128–288', platform: 'Shopify preorder',
+      day: 'Pick 10 photos. Print as Polaroids or 8×10s. Sign each. List on Shopify as preorder. Limited to 30 units.',
+      copy: '10 photos. Signed. One drop only.',
+      gate: 'Sell out within 48 hours' },
+    { name: 'Premium Membership Tier', price: 'HK$58 / month', platform: 'Fourthwall or Patreon',
+      day: 'Bundle the BTS drop + a monthly members-only live + early access to all future drops. Position as the tier that funds everything else.',
+      copy: 'Everything I make, before anyone else sees it.',
+      gate: '200 members for 2 consecutive months' },
+    { name: 'VIP Fan Meet', price: 'HK$688–1,500', platform: 'Eventbrite or local ticketing',
+      day: 'Pick a city. Cap at 30 attendees. Include a photo, a signed print, and 60 minutes of Q&A. Sell through Eventbrite. Open to all members first.',
+      copy: '30 seats. One room. One night.',
+      gate: 'Sell out + repeatable format before doing a second city' }
+  ],
+  Lifestyle: [
+    { name: 'Daily Routine Guide', price: 'HK$48–98', platform: 'Gumroad or Ko-fi',
+      day: 'Pick one ritual you show on camera (morning routine, cooking flow, skin prep). Document it step by step. Make a 12-page PDF or Notion doc. Sell at HK$68.',
+      copy: 'The routine, broken down. The exact steps, the exact products.',
+      gate: '50 units sold' },
+    { name: 'Starter Bundle', price: 'HK$128–298', platform: 'Shopify',
+      day: 'Source or curate 3–5 SKUs that match the routine (one hero product + 2 accessories). Bundle at 20% off individual price. Freeshipping over HK$300.',
+      copy: 'Everything in the routine, in one box.',
+      gate: '40 bundles sold at 4.5+ star average' },
+    { name: 'Refill Subscription', price: 'HK$38–98 / month', platform: 'Shopify Subscription',
+      day: 'Pick the consumable SKU that runs out (coffee, supplement, skincare). Offer monthly auto-ship at 15% off. Email reminder 5 days before ship.',
+      copy: 'Never run out.',
+      gate: '100 active subscribers' },
+    { name: 'Seasonal Capsule', price: 'HK$198–688', platform: 'Shopify',
+      day: 'Drop a 4–8 piece capsule tied to a season. Open for 7 days only. Email your list the morning of the drop. Close on day 7.',
+      copy: 'Eight pieces. Seven days. That\'s it.',
+      gate: '70% sell-through within the drop window' },
+    { name: 'Founder Edition', price: 'HK$688–1,500', platform: 'Shopify or limited in-person',
+      day: 'Take the best-selling capsule piece. Re-issue it numbered, signed, with a hand-written note. Limited to 50 units. Announced to members first.',
+      copy: '50 only. Numbered. Mine.',
+      gate: '50 numbered units gone in under 24 hours' }
+  ],
+  Expertise: [
+    { name: 'Digital Guide', price: 'HK$48–98', platform: 'Gumroad',
+      day: 'Open your DM folder. Find the question you\'ve answered 5+ times. Write the answer fully — the version you wish you could paste. Sell at HK$68.',
+      copy: 'The answer I keep giving in DMs, in one PDF.',
+      gate: '40 units sold before writing the next one' },
+    { name: 'Toolkit / Template Pack', price: 'HK$128–298', platform: 'Gumroad or Notion',
+      day: 'Take the workflow behind the guide (the Notion template, the spreadsheet, the checklist). Package separately at HK$198. Position as "the actual tool, not just the explanation."',
+      copy: 'The system, not just the advice.',
+      gate: 'Bundle conversion rate above 8%' },
+    { name: 'Mini Course', price: 'HK$298–588', platform: 'Teachable or Thinkific',
+      day: 'Take the guide + toolkit. Add 4–6 video lessons (20 minutes each) that walk through applying it. Teachable handles payments. Run a 5-day launch.',
+      copy: 'Everything in the guide, walked through step by step.',
+      gate: '35 course sales in first launch' },
+    { name: 'Flagship Course', price: 'HK$688–1,500', platform: 'Kajabi or Teachable',
+      day: 'Take the best-performing mini course. Add cohort calls, deeper templates, and a private community. Open twice a year. Pre-sell to your email list first.',
+      copy: 'The full thing. Twice a year. Cohort-based.',
+      gate: '150 seats × 2 launches' },
+    { name: 'Cohort / Workshop', price: 'HK$888–2,500', platform: 'Eventbrite + Zoom',
+      day: 'Cap at 25 attendees. Run over 4 weeks, 90 minutes each. Live calls, peer review, an outcome at the end. Charge HK$1,288.',
+      copy: '25 seats. 4 weeks. One outcome.',
+      gate: 'Sold out + 4.7+ rating before scheduling the next cohort' }
+  ],
+  Aesthetic: [
+    { name: 'Founder\'s Favorites Edit', price: 'Free, drives DTC', platform: 'Shopify storefront',
+      day: 'Pick 10–15 items you actually wear / use. Photograph them flat-lay or worn. Build one Shopify collection called "My Favorites." Link from your bio.',
+      copy: 'Everything I\'m wearing, linked.',
+      gate: '5% click-through from bio to collection' },
+    { name: 'Lookbook Zine', price: 'HK$48–128', platform: 'Gumroad or Shopify',
+      day: 'Print or PDF zine. 24 pages. One season\'s outfits photographed, captioned, with links. Sell as digital download + printed copy.',
+      copy: 'A season, photographed.',
+      gate: '200 copies sold' },
+    { name: 'Capsule Drop', price: 'HK$198–498', platform: 'Shopify',
+      day: 'Source or produce 6–12 pieces in your aesthetic. Open the drop for 5 days. Email your list the morning of. Use the zine as the lookbook.',
+      copy: 'Six pieces. One drop. Five days.',
+      gate: '60% sell-through' },
+    { name: 'Signature Piece', price: 'HK$488–1,200', platform: 'Shopify',
+      day: 'Pick the best-selling piece from the capsule. Re-make it in premium fabric. Number it. Sell to your email list first.',
+      copy: 'The one piece, remade. Numbered.',
+      gate: 'Sell out in 24 hours' },
+    { name: 'Personal Styling Session', price: 'HK$888–2,000', platform: 'Calendly + Zoom',
+      day: 'Open 10 slots per month. 60-minute video call. They send photos, you build a capsule around their body + budget. Charge HK$1,288.',
+      copy: 'I style your closet over Zoom. 10 spots a month.',
+      gate: 'Booked solid for 2 consecutive months' }
+  ],
+  Trust: [
+    { name: 'Curation Guide', price: 'HK$48–98', platform: 'Gumroad',
+      day: 'Pick a category your audience keeps asking about (skincare, travel, food, restaurants in your city). Curate 20 items. Sell as a PDF with one-line reviews per item.',
+      copy: 'The 20 [items] I actually use. With reasons.',
+      gate: '50 units sold' },
+    { name: 'Owned Starter Product', price: 'HK$44–128', platform: 'Shopify or Gumroad',
+      day: 'Find the white space in your category. One product you wish existed. Source it (white-label or co-create). Launch at HK$88. Pre-sell to validate.',
+      copy: 'The product I couldn\'t find, so I made it.',
+      gate: 'Pre-sell 100 units before manufacturing' },
+    { name: 'Refill Subscription', price: 'HK$38–98 / month', platform: 'Shopify Subscription',
+      day: 'Take the owned starter product. Convert to monthly auto-ship at 15% off. Bundle 3-month minimum first.',
+      copy: 'On auto-ship. Cancel anytime.',
+      gate: '100 active subscribers' },
+    { name: 'Premium Bundle', price: 'HK$198–498', platform: 'Shopify',
+      day: 'Take the starter + a refill + one accessory. Bundle at 25% off. Position as the upgrade for existing customers only.',
+      copy: 'The full system. For people already on it.',
+      gate: '30% of existing customers upgrade' },
+    { name: 'Signature Drop', price: 'HK$288–888', platform: 'Shopify',
+      day: 'Once a year. Limited to 500 units. One new product + a numbered box. Announce to email list only. No paid ads.',
+      copy: 'Once a year. 500 only. Email list gets it first.',
+      gate: 'Sell out in 48 hours' }
+  ],
+  IP: [
+    { name: 'Sticker / Wallpaper Pack', price: 'HK$8–28', platform: 'Gumroad or Shopify',
+      day: 'Take the recurring character or motif from your content. Make 6–10 stickers or 4K wallpapers. Sell as digital download at HK$18.',
+      copy: 'The character, on your laptop.',
+      gate: '100 units sold' },
+    { name: 'Plush / Keychain', price: 'HK$25–88', platform: 'Shopify or Fourthwall',
+      day: 'Pick the most-asked-for character. Get a sample plush made (minimum 50 units). Pre-sell to validate before the full run.',
+      copy: 'Pre-order. Ships in 6 weeks.',
+      gate: '50 pre-orders before manufacturing' },
+    { name: 'Limited Drop', price: 'HK$48–188', platform: 'Shopify',
+      day: 'Combine 3 SKUs (plush + keychain + sticker) into a numbered bundle. Open for 72 hours only. Email list first.',
+      copy: '72 hours. Then it\'s gone.',
+      gate: 'Sell out within the window' },
+    { name: 'Family / Universe Bundle', price: 'HK$198–488', platform: 'Shopify',
+      day: 'Take the full character family. Bundle all SKUs. Limited to 100 sets. Numbered. Signed insert.',
+      copy: 'The full universe. 100 sets only.',
+      gate: 'Sold out + waitlist of 50+ before second run' },
+    { name: 'License / Collaboration', price: '5–15% royalty', platform: 'Direct outreach',
+      day: 'Approach 3 brands that fit the IP. Pitch a co-branded capsule. Keep creative control. Take 10% royalty.',
+      copy: 'We make it together. You keep your character.',
+      gate: 'One signed deal, regardless of terms' }
+  ],
+  Community: [
+    { name: 'Members Newsletter', price: 'HK$8–28 / month', platform: 'Substack or Patreon',
+      day: 'Pick one weekly email format (links, behind-the-scenes, member Q&A). Charge $8/month. Free for the first 100 sign-ups to seed.',
+      copy: 'One email a week. Things I don\'t post anywhere else.',
+      gate: '150 paid subscribers' },
+    { name: 'Private Podcast / BTS', price: 'HK$38–58 / month', platform: 'Patreon or Spotify',
+      day: 'Record one 15-minute episode per week. Members-only feed. Cover what you\'re thinking, working on, struggling with.',
+      copy: 'What I\'m actually thinking about.',
+      gate: '200 active subscribers for 3 months' },
+    { name: 'Monthly Live Members Call', price: 'Included in membership', platform: 'Zoom or Instagram Live',
+      day: 'Once a month, 60 minutes. Members submit questions in advance. You answer live. Free for all paid tiers.',
+      copy: 'First Friday of every month. Members only.',
+      gate: '40%+ member attendance' },
+    { name: 'Premium Tier (1-to-1 access)', price: 'HK$298–688 / month', platform: 'Patreon or Fourthwall',
+      day: 'Top tier. 30 members max. Monthly 30-minute 1-to-1 with you. Position as the cohort that funds everything else.',
+      copy: '30 seats. 30 minutes a month with me.',
+      gate: 'Sold out + waiting list' },
+    { name: 'Cohort / Retreat', price: 'HK$888–2,500', platform: 'Eventbrite + Zoom or in-person',
+      day: 'Once a year. 3-day online or 2-day in-person. Cap at 30 attendees. Mix workshops, social time, and access to you.',
+      copy: 'Three days. 30 of us. One place.',
+      gate: 'Sold out + 4.8+ rating' }
+  ]
+};
+
+const BENCHMARKS = {
+  Personality: [
+    {name:'Moriah Elizabeth', mech:'Personality + IP', img:'https://bookingagentinfo.com/wp-content/uploads/2020/12/Moriah-Elizabeth.jpg', score:0.92},
+    {name:'Ryan Trahan', mech:'Personality + Entertainment', img:'https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Ryan-Trahan-Prof_4.jpeg', score:0.85},
+    {name:'Salish Matter', mech:'Personality + Routine', img:'https://static.time.com/v3/assets/bltea6093859af6183b/bltee0496a70570dffa/6a5029a1a234190a0cd479fd/TIME100-Creators-2026-Salish-Matter.jpg?auto=webp&branch=production&crop=4%3A5%2Coffset-x0.00%2Coffset-y0.00&quality=75&width=1080', score:0.81}
+  ],
+  Lifestyle: [
+    {name:'Emma Chamberlain', mech:'Lifestyle + Consumable', img:'https://cdn2.sagefinder.com/assets/users/large/2130031.jpg?r=862028', score:0.95},
+    {name:'Pamela Reif', mech:'Lifestyle + Fitness', img:'https://static.instyle.de/0x0%3A1257x943/2000x1500/images/2024-06/pamela-reif-interview-haarpflege1.jpg', score:0.88},
+    {name:'滴妹 Dimei', mech:'Lifestyle + FMCG', img:'https://v3-statics.mirrormedia.mg/images/c9350e8a-d218-43ac-92ed-86624bbd1126.jpg', score:0.84}
+  ],
+  Expertise: [
+    {name:'Ali Abdaal', mech:'Expertise + Digital ladder', img:'https://proassetspdlcom.cdnstatics2.com/usuaris/autores/fotos/86/original/000085366_1_AliAbdaal-nocreditneeded_202407111615.png', score:0.94},
+    {name:'Coffee Lam', mech:'Expertise + Owned brand', img:'https://cdn.hk01.com/di/media/images/dw/20210527/474726576903557120715468.jpeg/oY1BMzOqSvw85m_1mF_oEwUn9KtyqBgShOVjFYTlYxU?v=w1920', score:0.86},
+    {name:'愛莉莎莎 Alisasa', mech:'Expertise + Course', img:'https://v3-statics.mirrormedia.mg/images/9f16ef7a-09f3-45fb-9252-2eb1805c6a04-w800.jpg', score:0.82}
+  ],
+  Aesthetic: [
+    {name:'Matilda Djerf', mech:'Aesthetic + Fashion', img:'https://images.aftonbladet-cdn.se/v2/images/513dc158-f93c-4553-8ac7-4451cad66478?fit=crop&format=auto&h=2266&q=50&s=e8963ddfda57c0ef4837ddae57764b237f534ad0&w=1900', score:0.91},
+    {name:'Molly-Mae Hague', mech:'Aesthetic + Drop', img:'https://cdn.mos.cms.futurecdn.net/YYsXdafP8BEFvQsFxQF3pk.jpg', score:0.85},
+    {name:'Grace Beverley', mech:'Aesthetic + Multi-brand', img:'https://i.insider.com/63bd464423f3620019879262?format=jpeg&width=1200', score:0.83}
+  ],
+  Trust: [
+    {name:'黎貝卡 Becky Li', mech:'Trust + Editorial', img:'https://img.i-scmp.com/cdn-cgi/image/fit%3Dcontain%2Cwidth%3D425%2Cformat%3Dauto/sites/default/files/styles/768x768/public/d8/images/canvas/2021/02/24/9a3d9909-c725-4ca5-b6ef-7c5e0a47a81d_7ea4615b.jpg?itok=8ENKq7QJ&v=1614137480', score:0.89},
+    {name:'NikkieTutorials', mech:'Trust + Beauty', img:'https://imgix.bustle.com/uploads/getty/2019/12/31/57d08bcd-9faf-456d-bf35-c90c09c4daeb-getty-930210216.jpg?crop=faces&fit=crop&fm=jpg&h=1200&w=1200', score:0.84}
+  ],
+  IP: [
+    {name:'Moriah Elizabeth', mech:'IP + Collectible', img:'https://bookingagentinfo.com/wp-content/uploads/2020/12/Moriah-Elizabeth.jpg', score:0.94},
+    {name:'李子柒 Li Ziqi', mech:'IP + Cultural world', img:'https://upload.wikimedia.org/wikipedia/commons/8/86/%E6%9D%8E%E5%AD%90%E6%9F%92_2017.jpg', score:0.88}
+  ],
+  Community: [
+    {name:'滇西小哥 Dianxi', mech:'Community + Membership', img:'https://cdn-ak.f.st-hatena.com/images/fotolife/h/hidari_te/20191225/20191225224440.jpg', score:0.87},
+    {name:'李子柒 Li Ziqi', mech:'Community + IP world', img:'https://upload.wikimedia.org/wikipedia/commons/8/86/%E6%9D%8E%E5%AD%90%E6%9F%92_2017.jpg', score:0.82}
+  ]
+};
+
+const QUESTIONS = [
+  {id:1, phase:'Positioning', type:'single', evidence:'C',
+   q:'What\'s your primary content pillar?',
+   sub:'Pick the one your audience would name first.',
+   opts:['Lifestyle / daily','Beauty / skincare','Fashion / styling','Education / how-to','Entertainment / IP','Fitness / wellness']},
+  {id:2, phase:'Positioning', type:'single', evidence:'C',
+   q:'If a fan described you in one sentence, it would be:',
+   sub:'The closest match — not the most flattering.',
+   opts:['I love them as a person','I want to be like them','I want to learn from them','I love their work / characters','I trust their recommendations','I want community with other fans']},
+  {id:3, phase:'Audience', type:'number', evidence:'C',
+   q:'How big is the audience that actually sees you?',
+   sub:'Best-known platform, current count.',
+   fields:[{lab:'Instagram followers', ph:'e.g. 120000'},{lab:'TikTok / Douyin', ph:'e.g. 80000'}]},
+  {id:4, phase:'Audience', type:'single', evidence:'C',
+   q:'Where is your audience?',
+   sub:'Most of them, most of the time.',
+   opts:['Hong Kong','Taiwan','Mainland China','Southeast Asia','US / UK / EU','Global mix']},
+  {id:5, phase:'Evidence', type:'single', evidence:'A',
+   q:'What\'s the strongest evidence you have that someone would pay you?',
+   sub:'Be honest. The diagnostic weights this — your answer here sets how seriously we treat everything else.',
+   opts:[{l:'Someone has already paid me (product, ticket, course, sub)', e:'A'},
+         {l:'Fans keep asking for something specific', e:'B'},
+         {l:'My content on one topic gets disproportionate saves / shares / DMs', e:'C'},
+         {l:'Honestly — I just think I\'d be good at it', e:'D'}]},
+  {id:6, phase:'Fan Depth', type:'multi', evidence:'B',
+   q:'Which fan behaviors have actually happened in the last 6 months?',
+   sub:'Only count the ones that genuinely have. Not aspirational.',
+   opts:[{l:'High DM volume', e:'B'},{l:'Regular recurring commenters', e:'B'},{l:'Fan accounts / fan edits / fan art', e:'B'},{l:'They remember my birthday', e:'B'},{l:'They\'ve asked to meet in person', e:'B'},{l:'They\'ve asked for photos / signed prints', e:'B'},{l:'They copy my outfits / routine', e:'B'},{l:'They buy what I recommend', e:'B'},{l:'They ask the same how-to question repeatedly', e:'B'}]},
+  {id:7, phase:'Fan Depth', type:'multi', evidence:'B',
+   q:'What have fans explicitly asked for?',
+   sub:'This is the strongest demand signal you have.',
+   opts:[{l:'Photo set', e:'B'},{l:'Photocards / collectibles', e:'B'},{l:'Membership', e:'B'},{l:'Course / tutorial', e:'B'},{l:'Preset / template', e:'B'},{l:'Travel / restaurant guide', e:'B'},{l:'Fan meet / event', e:'B'},{l:'Their own version of a product I use', e:'B'}]},
+  {id:8, phase:'Boundary', type:'multi', evidence:'D',
+   q:'Hard no\'s — which would you absolutely not do?',
+   sub:'These get excluded from your product recommendations entirely.',
+   opts:[{l:'Photo sets', e:'D'},{l:'Subscriber-only personal content', e:'D'},{l:'Personalized video / voice', e:'D'},{l:'Going live', e:'D'},{l:'Fan meets', e:'D'},{l:'Signed prints / polaroids', e:'D'},{l:'Teaching', e:'D'},{l:'Own brand', e:'D'}]}
+];
+
+const BRANCH_QUESTIONS = {
+  'Lifestyle / daily': {id:'L1', phase:'Lifestyle', type:'single', evidence:'C',
+    q:'What daily ritual shows up in your content most often?',
+    sub:'The one your audience sees you do repeatedly.',
+    opts:[{l:'Morning coffee / tea / breakfast', e:'C'},{l:'Skincare / beauty routine', e:'C'},{l:'Outfit / getting-ready sequence', e:'C'},{l:'Workout / wellness habit', e:'C'},{l:'Cooking / meal prep', e:'C'},{l:'Travel / city walks', e:'C'}]},
+  'Beauty / skincare': {id:'B1', phase:'Beauty', type:'single', evidence:'C',
+    q:'Is your beauty content about a routine or a result?',
+    sub:'This decides consumable vs. one-time purchase as your first product.',
+    opts:[{l:'Routine — same products, repeated use', e:'C'},{l:'Result — finished looks / transformations', e:'C'},{l:'Both, depending on the post', e:'C'}]},
+  'Fashion / styling': {id:'F1', phase:'Fashion', type:'single', evidence:'C',
+    q:'Do fans ask "where is that from?" or "how do you put that together?"',
+    sub:'Both questions support different product types.',
+    opts:[{l:'Mostly "where is that from?" — sourcing', e:'C'},{l:'Mostly "how do you put that together?" — styling', e:'C'},{l:'A mix of both', e:'C'}]},
+  'Education / how-to': {id:'E1', phase:'Education', type:'multi', evidence:'A',
+    q:'What specific skills do you actually teach — not just talk about?',
+    sub:'Things you could walk someone through in a 30-minute call.',
+    opts:[{l:'Photography / videography', e:'C'},{l:'Editing / post-production', e:'C'},{l:'Productivity / systems', e:'C'},{l:'Cooking / food craft', e:'C'},{l:'Fitness programming', e:'C'},{l:'Career / creator business', e:'C'},{l:'Design / creative tools', e:'C'},{l:'Language / writing', e:'C'}]},
+  'Entertainment / IP': {id:'I1', phase:'IP', type:'single', evidence:'C',
+    q:'Do you have a recurring character, world, or motif?',
+    sub:'Something your audience would name unprompted.',
+    opts:[{l:'Yes — characters / mascots / named series', e:'C'},{l:'Yes — a recurring visual or verbal motif', e:'C'},{l:'No — every video stands alone', e:'C'}]},
+  'Fitness / wellness': {id:'FW1', phase:'Fitness', type:'single', evidence:'C',
+    q:'Is your fitness content more about a method or a transformation?',
+    sub:'Methods build recurring programs. Transformations build flagship products.',
+    opts:[{l:'Method — same system, repeatable', e:'C'},{l:'Transformation — before/after storytelling', e:'C'},{l:'Both', e:'C'}]}
+};
+
+const FINAL_QUESTIONS = [
+  {id:14, phase:'Operations', type:'single', evidence:'D',
+    q:'Initial budget for the first 90 days?',
+    sub:'Honest number — changes which products are realistic first.',
+    opts:[{l:'HK$0–2K', e:'D'},{l:'HK$2K–10K', e:'D'},{l:'HK$10K–50K', e:'D'},{l:'HK$50K+', e:'D'}]},
+  {id:15, phase:'Operations', type:'single', evidence:'D',
+    q:'Hours per week you can actually commit?',
+    sub:'Realistic, not aspirational.',
+    opts:[{l:'Under 2', e:'D'},{l:'2–5', e:'D'},{l:'5–10', e:'D'},{l:'10–20', e:'D'},{l:'Full-time', e:'D'}]}
+];
+
+const engineMap = {Personality:'Personality', Lifestyle:'Lifestyle', Expertise:'Expertise', Aesthetic:'Aesthetic', Trust:'Trust', IP:'IP', Community:'Community'};
+const followMap = {1:'Personality', 2:'Lifestyle', 3:'Expertise', 4:'IP', 5:'Trust', 6:'Community'};
+
+let flow = [];
+let answers = {};
+let qStep = 0;
+let diag = document.getElementById('diag');
+let body = document.getElementById('diagBody');
+
+function openDiag() {
+  flow = [...QUESTIONS];
+  diag.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  qStep = 0;
+  renderQ();
+}
+
+function ensureBranch() {
+  const pillar = answers[1];
+  if (!pillar || !BRANCH_QUESTIONS[pillar]) return;
+  const hasBranch = flow.some(q => q.id === BRANCH_QUESTIONS[pillar].id);
+  if (hasBranch) return;
+  flow.splice(8, 0, BRANCH_QUESTIONS[pillar]);
+}
+
+function closeDiag() {
+  diag.classList.remove('open');
+  document.body.style.overflow = '';
+  answers = {};
+  qStep = 0;
+}
+
+function renderQ() {
+  const q = flow[qStep];
+  document.getElementById('diagLabel').textContent = q.phase;
+  document.getElementById('diagProg').textContent = `Question ${qStep + 1} of ${flow.length}`;
+  let html = '';
+  if (q.evidence === 'A') html += `<div class="diag-evidence"><b>Highest weight</b>This question is treated as actual behavior. Your answer will heavily anchor the diagnosis.</div>`;
+  else if (q.evidence === 'D') html += `<div class="diag-evidence"><b>Lowest weight</b>This is preference, not behavior. It shapes output but won't override earlier evidence.</div>`;
+  html += `<h2 class="diag-q">${q.q}</h2><div class="diag-sub">${q.sub}</div>`;
+
+  if (q.type === 'number') {
+    html += `<div class="diag-opts" style="grid-template-columns:1fr 1fr">${q.fields.map(f => `<input class="diag-opt" style="cursor:text;font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--ink)" placeholder="${f.ph}" data-field="${f.lab}">`).join('')}</div>`;
+  } else if (q.type === 'single') {
+    const cls = q.opts.length > 5 ? 'c2' : '';
+    html += `<div class="diag-opts ${cls}">${q.opts.map(o => {
+      const obj = typeof o === 'object' ? o : {l:o, e:'C'};
+      const sel = answers[q.id] === obj.l;
+      return `<button class="diag-opt ${sel?'sel':''}" onclick="pick(this,'${obj.l.replace(/'/g,"\\'")}')">${obj.l}</button>`;
+    }).join('')}</div>`;
+  } else if (q.type === 'multi') {
+    const cls = q.opts.length > 5 ? 'c2' : '';
+    html += `<div class="diag-opts ${cls}">${q.opts.map(o => {
+      const obj = typeof o === 'object' ? o : {l:o, e:'C'};
+      const sel = (answers[q.id] || []).includes(obj.l);
+      return `<button class="diag-opt ${sel?'sel':''}" onclick="pickMulti(this,'${obj.l.replace(/'/g,"\\'")}')"><span class="check">${sel?'✓':' '}</span>${obj.l}</button>`;
+    }).join('')}</div>`;
+  }
+
+  html += `<div class="diag-foot"><div class="l"><button onclick="qBack()" ${qStep===0?'disabled style="opacity:.3"':''}>← Back</button><button class="skip" onclick="qSkip()">Skip</button></div><div class="r"><button class="primary" onclick="qNext()" id="diagNext">${qStep === flow.length - 1 ? 'See diagnosis →' : 'Continue →'}</button></div></div>`;
+  body.innerHTML = html;
+
+  if (q.type === 'number') {
+    q.fields.forEach(f => {
+      const inp = body.querySelector(`[data-field="${f.lab}"]`);
+      inp.addEventListener('input', e => {
+        answers[q.id] = {...(answers[q.id] || {}), [f.lab]: e.target.value};
+      });
+    });
+  }
+}
+
+function pick(btn, val) {
+  answers[flow[qStep].id] = val;
+  body.querySelectorAll('.diag-opt').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  setTimeout(qNext, 200);
+}
+
+function pickMulti(btn, val) {
+  const q = flow[qStep];
+  const cur = answers[q.id] || [];
+  if (cur.includes(val)) {
+    answers[q.id] = cur.filter(x => x !== val);
+    btn.classList.remove('sel');
+    btn.querySelector('.check').textContent = ' ';
+  } else {
+    answers[q.id] = [...cur, val];
+    btn.classList.add('sel');
+    btn.querySelector('.check').textContent = '✓';
+  }
+}
+
+function qBack() { if (qStep > 0) { qStep--; renderQ(); } else closeDiag(); }
+function qSkip() { advance(); }
+function qNext() { advance(); }
+
+function advance() {
+  if (qStep === 0) {
+    const pillar = answers[1];
+    if (pillar && BRANCH_QUESTIONS[pillar] && !flow.find(q => q.id === BRANCH_QUESTIONS[pillar].id)) {
+      flow.splice(8, 0, BRANCH_QUESTIONS[pillar]);
+    }
+  }
+  if (qStep === 8 && !flow.find(q => q.id === 14)) {
+    flow.push(...FINAL_QUESTIONS);
+  }
+  qStep++;
+  if (qStep >= flow.length) showResult();
+  else renderQ();
+}
+
+function calcEngine() {
+  let scores = {Personality:0, Lifestyle:0, Expertise:0, Aesthetic:0, Trust:0, IP:0, Community:0};
+  let evidenceTotals = {Personality:0, Lifestyle:0, Expertise:0, Aesthetic:0, Trust:0, IP:0, Community:0};
+
+  function add(engine, points, ev) {
+    scores[engine] += points * EVIDENCE[ev];
+    evidenceTotals[engine] += EVIDENCE[ev];
+  }
+
+  const pillar = answers[1];
+  const follow = answers[2];
+  const strongestSignal = answers[5];
+  const fanBehaviors = answers[6] || [];
+  const fanRequests = answers[7] || [];
+  const branchAns = answers['L1'] || answers['B1'] || answers['F1'] || answers['E1'] || answers['I1'] || answers['FW1'] || [];
+
+  if (pillar === 'Lifestyle / daily') add('Lifestyle', 30, 'C');
+  if (pillar === 'Beauty / skincare') add('Aesthetic', 25, 'C');
+  if (pillar === 'Fashion / styling') add('Aesthetic', 30, 'C');
+  if (pillar === 'Education / how-to') add('Expertise', 35, 'C');
+  if (pillar === 'Entertainment / IP') add('IP', 30, 'C');
+  if (pillar === 'Fitness / wellness') add('Lifestyle', 22, 'C');
+
+  if (follow === 'I love them as a person') add('Personality', 28, 'C');
+  if (follow === 'I want to be like them') add('Aesthetic', 25, 'C');
+  if (follow === 'I want to learn from them') add('Expertise', 28, 'C');
+  if (follow === 'I love their work / characters') add('IP', 28, 'C');
+  if (follow === 'I trust their recommendations') add('Trust', 28, 'C');
+  if (follow === 'I want community with other fans') add('Community', 28, 'C');
+
+  if (strongestSignal && strongestSignal.includes('already paid')) {
+    if (follow === 'I love them as a person') add('Personality', 25, 'A');
+    if (follow === 'I want to be like them') add('Aesthetic', 25, 'A');
+    if (follow === 'I want to learn from them') add('Expertise', 25, 'A');
+    if (follow === 'I love their work / characters') add('IP', 25, 'A');
+    if (follow === 'I trust their recommendations') add('Trust', 25, 'A');
+    if (follow === 'I want community with other fans') add('Community', 25, 'A');
+  }
+
+  fanBehaviors.forEach(b => {
+    if (/DM|commenter|birthday|meet|photo|sign|copy|recommend|how-to/.test(b)) {
+      if (follow === 'I love them as a person') add('Personality', 8, 'B');
+      if (follow === 'I want to be like them') add('Aesthetic', 6, 'B');
+      if (follow === 'I want to learn from them') add('Expertise', 7, 'B');
+      if (follow === 'I trust their recommendations') add('Trust', 8, 'B');
+      if (follow === 'I want community with other fans') add('Community', 7, 'B');
+    }
+  });
+
+  fanRequests.forEach(r => {
+    if (/Photo set|membership|fan meet|photo|sign/i.test(r)) add('Personality', 7, 'B');
+    if (/Photocard|collectible|merch/i.test(r)) add('IP', 6, 'B');
+    if (/Course|tutorial|preset|template|guide/i.test(r)) add('Expertise', 8, 'B');
+    if (/Travel|restaurant|recommend/i.test(r)) add('Trust', 7, 'B');
+    if (/Membership|live|community/i.test(r)) add('Community', 6, 'B');
+  });
+
+  if (Array.isArray(branchAns)) {
+    branchAns.forEach(b => {
+      if (typeof b === 'string' && /photography|videography|editing|productivity|cooking|fitness|career|design|language/i.test(b)) add('Expertise', 6, 'C');
+    });
+  }
+
+  const budget = answers[14];
+  if (budget === 'HK$0–2K') {
+    Object.keys(scores).forEach(k => { scores[k] *= 0.9; });
+  }
+
+  const normalized = {};
+  Object.keys(scores).forEach(k => {
+    const maxPossible = evidenceTotals[k] || 1;
+    normalized[k] = Math.min(100, Math.round((scores[k] / (maxPossible * 30)) * 100));
+  });
+
+  const sorted = Object.entries(normalized).sort((a,b) => b[1] - a[1]);
+  return {scores: normalized, primary: sorted[0][0], secondary: sorted[1][0], sorted};
+}
+
+function showResult() {
+  const r = calcEngine();
+  const products = PRODUCTS[r.primary];
+  const benchmarks = (BENCHMARKS[r.primary] || BENCHMARKS.Lifestyle).slice(0, 3);
+
+  const top = r.sorted[0];
+  const conf = top[1] >= 70 ? 'High' : top[1] >= 50 ? 'Medium-High' : top[1] >= 35 ? 'Medium' : 'Low';
+  const confDetail = top[1] >= 50 ? 'multiple evidence types pointing the same direction' : top[1] >= 35 ? 'one strong evidence type, others thin' : 'mostly preference, weak evidence';
+
+  const pillar = answers[1];
+  const follow = answers[2];
+  const strongest = answers[5] || '';
+  const fanBehaviors = answers[6] || [];
+  const fanRequests = answers[7] || [];
+
+  let whyParts = [];
+  whyParts.push(`Your content pillar is <strong>${pillar || 'unclear'}</strong> (C-weight).`);
+  if (strongest) whyParts.push(`Strongest signal: <strong>${strongest.split(' (')[0].toLowerCase()}</strong> — ${strongest.includes('already paid') ? 'A-weight evidence is in play' : strongest.includes('keep asking') ? 'B-weight demand signals' : strongest.includes('disproportionate') ? 'C-weight content signals' : 'D-weight only — preference, not proof'}.`);
+  if (fanBehaviors.length > 0) whyParts.push(`${fanBehaviors.length} fan-behavior signal${fanBehaviors.length>1?'s':''} confirmed (B-weight).`);
+  if (fanRequests.length > 0) whyParts.push(`${fanRequests.length} explicit fan request${fanRequests.length>1?'s':''} (B-weight).`);
+
+  const dos = fanRequests.filter(r => /course|tutorial|guide/i.test(r)).slice(0, 3);
+  const donts = (answers[8] || []);
+
+  body.innerHTML = `
+    <div class="result">
+      <h3>Your diagnosis</h3>
+      <div class="sub">${r.primary} Commerce · with ${r.secondary} as supporting line</div>
+
+      <div class="evidence-block">
+        <div class="lab">Primary engine · ${conf} confidence</div>
+        <h4>${r.primary} Commerce</h4>
+        <div class="conf">Score ${top[1]} / 100 · based on ${confDetail}</div>
+        <p class="why">${whyParts.join(' ')}</p>
+      </div>
+
+      <h6 style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin:24px 0 12px">Your product ladder</h6>
+      <div class="product-list">
+        ${products.map((p, i) => `
+          <div class="product">
+            <div class="n">${String(i+1).padStart(2,'0')}</div>
+            <div>
+              <div class="name">${p.name}</div>
+              <div class="meta"><b>${p.price}</b> · ${p.platform}</div>
+              <div class="day"><b>${i===0?'Day-one action':'What to build next'}</b>${p.day}</div>
+              <div class="copy">"${p.copy}"</div>
+              <div class="gate"><b>Success gate</b>Move to step ${i+2} when: ${p.gate}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="dont-list">
+        <h6>Don't do these yet</h6>
+        <ul>${donts.slice(0, 4).map(d => `<li>${d} — you marked this as a hard no</li>`).join('')}
+        ${donts.length === 0 ? '<li>You have no hard exclusions — but skip any product above step 1 until step 1 hits its success gate</li>' : ''}
+        <li>FMCG, retail distribution, or own cosmetics brand — not until 100K+ audience and 12+ months of repeat-purchase data</li></ul>
+      </div>
+
+      <div class="benchmarks">
+        <h6>Real creator benchmarks</h6>
+        ${benchmarks.map(b => `
+          <div class="bm-row">
+            <img src="${b.img}" alt="${b.name}">
+            <div>
+              <div class="name">${b.name}</div>
+              <div class="mech">${b.mech}</div>
+            </div>
+            <div class="pct">${Math.round(b.score * top[1])}%</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">Complete · ${flow.length} of ${flow.length}</div>
+        <button onclick="closeDiag()" style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:transparent;border:1px solid var(--ink);padding:10px 18px;cursor:pointer">Close</button>
+      </div>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
